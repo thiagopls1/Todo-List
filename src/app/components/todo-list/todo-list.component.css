@@ -6,6 +6,10 @@
   vertical-align: top;
 }
 
+.board-container{
+  margin: 1em;
+}
+
 .draggable-list {
   border: solid 1px #ccc;
   min-height: 60px;

@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { TodoListComponent } from './todo-list/todo-list.component'
-// import { ckdDropList } from '@angular/material'
-// import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TodoListComponent } from './components/todo-list/todo-list.component'
+import { ToolbarComponent } from './components/toolbar/toolbar.component'
 
 @NgModule({
   declarations: [
@@ -14,7 +12,8 @@ import { TodoListComponent } from './todo-list/todo-list.component'
   imports: [
     BrowserModule,
     DragDropModule,
-    TodoListComponent
+    TodoListComponent,
+    ToolbarComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
