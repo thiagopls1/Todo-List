@@ -8,55 +8,67 @@ import {
   CdkDropList,
 } from '@angular/cdk/drag-drop';
 import { Task } from 'src/app/task';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css'],
   standalone: true,
-  imports: [CdkDrag, CdkDropList, NgFor]
+  imports: [CdkDrag, CdkDropList, NgFor, MatButtonModule, MatIconModule]
 })
 export class TodoListComponent {
   
   Tasks: Task[] = [
     {
       title: "Get to work",
+      description: "The book is on the table",
       status: "Todo"
     },
     {
       title: "Pick up groceries",
+      description: "The book is on the table",
       status: "Todo"
     },
     {
       title: "Go home",
+      description: "The book is on the table",
       status: "Todo"
     },
     {
       title: "Fall asleep",
+      description: "The book is on the table",
       status: "Todo"
     },
     {
       title: "Answer messages",
+      description: "The book is on the table",
       status: "InProgress"
     },
     {
       title: "Get up",
+      description: "The book is on the table",
       status: "Done"
     },
     {
       title: "Bursh teeth",
+      description: "The book is on the table",
       status: "Done"
     },
     {
       title: "Take a shower",
+      description: "The book is on the table",
       status: "Done"
     },
     {
       title: "Check e-mail",
+      description: "The book is on the table",
       status: "Done"
     },
     {
       title: "Walk dog",
+      description: "The book is on the table",
       status: "Done"
     },
   ]

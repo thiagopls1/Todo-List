@@ -10,7 +10,20 @@
       [cdkDropListData]="todo" 
       [cdkDropListConnectedTo]="[inprogressList, doneList]" 
       (cdkDropListDropped)="drop($event)">
-      <div class="item-box" cdkDrag [cdkDragData]="task" *ngFor="let task of todo"> {{ task.title }} </div>
+      <div class="item-box" cdkDrag [cdkDragData]="task" *ngFor="let task of todo">
+        <div class="text-container">
+          <b class="task-title">{{ task.title }}</b>
+          <p> {{ task.description }} </p>
+        </div>
+        <div class="button-container">
+          <button mat-mini-fab color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-mini-fab color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -24,7 +37,20 @@
       #inprogressList="cdkDropList"
       [cdkDropListConnectedTo]="[todoList, doneList]" 
       (cdkDropListDropped)="drop($event)">
-      <div class="item-box" cdkDrag [cdkDragData]="task" *ngFor="let task of inprogress"> {{ task.title }} </div>
+      <div class="item-box" cdkDrag [cdkDragData]="task" *ngFor="let task of inprogress">
+        <div class="text-container">
+          <b class="task-title">{{ task.title }}</b>
+          <p> {{ task.description }} </p>
+        </div>
+        <div class="button-container">
+          <button mat-mini-fab color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-mini-fab color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -38,7 +64,20 @@
       #doneList="cdkDropList"
       [cdkDropListConnectedTo]="[todoList, inprogressList]" 
       (cdkDropListDropped)="drop($event)">
-      <div class="item-box" cdkDrag [cdkDragData]="task" *ngFor="let task of done"> {{ task.title }} </div>
+      <div class="item-box" cdkDrag [cdkDragData]="task" *ngFor="let task of done">
+        <div class="text-container">
+          <b class="task-title">{{ task.title }}</b>
+          <p> {{ task.description }} </p>
+        </div>
+        <div class="button-container">
+          <button mat-mini-fab color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-mini-fab color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
