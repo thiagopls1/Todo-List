@@ -3,39 +3,42 @@
   <div class="list-container">
     <h2>To Do</h2>
     <div 
+      id="todo"
       class="draggable-list"
       cdkDropList 
       #todoList="cdkDropList" 
       [cdkDropListData]="todo" 
-      [cdkDropListConnectedTo]="[doneList, inprogressList]" 
+      [cdkDropListConnectedTo]="[inprogressList, doneList]" 
       (cdkDropListDropped)="drop($event)">
-      <div class="item-box" cdkDrag *ngFor="let item of todo"> {{ item }} </div>
+      <div class="item-box" cdkDrag [cdkDragData]="task" *ngFor="let task of todo"> {{ task.title }} </div>
     </div>
   </div>
   
   <div class="list-container">
     <h2>In Progress</h2>
     <div
+      id="inprogress"
       class="draggable-list"
       cdkDropList 
       [cdkDropListData]="inprogress" 
       #inprogressList="cdkDropList"
       [cdkDropListConnectedTo]="[todoList, doneList]" 
       (cdkDropListDropped)="drop($event)">
-      <div class="item-box" cdkDrag [cdkDragData]="item" *ngFor="let item of inprogress"> {{ item }} </div>
+      <div class="item-box" cdkDrag [cdkDragData]="task" *ngFor="let task of inprogress"> {{ task.title }} </div>
     </div>
   </div>
   
   <div class="list-container">
     <h2>Done</h2>
     <div
+      id="done"
       class="draggable-list"
       cdkDropList 
       [cdkDropListData]="done" 
       #doneList="cdkDropList"
       [cdkDropListConnectedTo]="[todoList, inprogressList]" 
       (cdkDropListDropped)="drop($event)">
-      <div class="item-box" cdkDrag [cdkDragData]="item" *ngFor="let item of done"> {{ item }} </div>
+      <div class="item-box" cdkDrag [cdkDragData]="task" *ngFor="let task of done"> {{ task.title }} </div>
     </div>
   </div>
 </div>
