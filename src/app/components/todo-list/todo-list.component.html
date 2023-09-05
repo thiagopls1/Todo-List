@@ -3,26 +3,15 @@
   <div class="list-container">
     <h2>To Do</h2>
     <div 
-      id="todo"
+      id="Todo"
       class="draggable-list"
       cdkDropList 
       #todoList="cdkDropList" 
-      [cdkDropListData]="todo" 
+      [cdkDropListData]="Tasks" 
       [cdkDropListConnectedTo]="[inprogressList, doneList]" 
       (cdkDropListDropped)="drop($event)">
-      <div class="item-box" cdkDrag [cdkDragData]="task" *ngFor="let task of todo">
-        <div class="text-container">
-          <b class="task-title">{{ task.title }}</b>
-          <p> {{ task.description }} </p>
-        </div>
-        <div class="button-container">
-          <button mat-mini-fab color="primary">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-mini-fab color="warn">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
+      <div cdkDrag [cdkDragData]="task" *ngFor="let task of Tasks">
+        <app-task *ngIf="checkStatus(task, 'Todo')" [task]="task" [(tasks)]="Tasks"/>
       </div>
     </div>
   </div>
@@ -30,26 +19,15 @@
   <div class="list-container">
     <h2>In Progress</h2>
     <div
-      id="inprogress"
+      id="InProgress"
       class="draggable-list"
       cdkDropList 
-      [cdkDropListData]="inprogress" 
+      [cdkDropListData]="Tasks" 
       #inprogressList="cdkDropList"
       [cdkDropListConnectedTo]="[todoList, doneList]" 
       (cdkDropListDropped)="drop($event)">
-      <div class="item-box" cdkDrag [cdkDragData]="task" *ngFor="let task of inprogress">
-        <div class="text-container">
-          <b class="task-title">{{ task.title }}</b>
-          <p> {{ task.description }} </p>
-        </div>
-        <div class="button-container">
-          <button mat-mini-fab color="primary">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-mini-fab color="warn">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
+      <div cdkDrag [cdkDragData]="task" *ngFor="let task of Tasks">
+          <app-task *ngIf="checkStatus(task, 'InProgress')" [task]="task" [(tasks)]="Tasks"/>
       </div>
     </div>
   </div>
@@ -57,26 +35,15 @@
   <div class="list-container">
     <h2>Done</h2>
     <div
-      id="done"
+      id="Done"
       class="draggable-list"
       cdkDropList 
-      [cdkDropListData]="done" 
+      [cdkDropListData]="Tasks" 
       #doneList="cdkDropList"
       [cdkDropListConnectedTo]="[todoList, inprogressList]" 
       (cdkDropListDropped)="drop($event)">
-      <div class="item-box" cdkDrag [cdkDragData]="task" *ngFor="let task of done">
-        <div class="text-container">
-          <b class="task-title">{{ task.title }}</b>
-          <p> {{ task.description }} </p>
-        </div>
-        <div class="button-container">
-          <button mat-mini-fab color="primary">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-mini-fab color="warn">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
+      <div cdkDrag [cdkDragData]="task" *ngFor="let task of Tasks">
+        <app-task *ngIf="checkStatus(task, 'Done')" [task]="task" [(tasks)]="Tasks"/>
       </div>
     </div>
   </div>

@@ -3,17 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TodoListComponent } from './components/todo-list/todo-list.component'
-import { ToolbarComponent } from './components/toolbar/toolbar.component'
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { TaskComponent } from './components/task/task.component'
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     DragDropModule,
+    CommonModule,
     TodoListComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    TaskComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

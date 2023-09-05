@@ -1,0 +1,14 @@
+<div class="item-box">
+  <div class="text-container">
+    <b class="task-title">{{ task.title }}</b>
+    <p> {{ task.description }} </p>
+  </div>
+  <div class="button-container">
+    <button mat-mini-fab color="primary">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button (click)="delete()" mat-mini-fab color="warn">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>
