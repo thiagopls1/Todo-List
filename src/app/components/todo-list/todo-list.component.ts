@@ -36,12 +36,12 @@ export class TodoListComponent {
     if(event.previousContainer === event.container){
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
       event.item.data.status = event.container.element.nativeElement.id
-      console.log(event.item.data)
     } else {
+      event.currentIndex--
       transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex)
       event.item.data.status = event.container.element.nativeElement.id
-      console.log(event.item.data)
     }
+    console.log(`currentIndex: ${event.currentIndex}`)
     console.log(this.Tasks)
   }
 
