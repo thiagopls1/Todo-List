@@ -33,13 +33,20 @@ export class TodoListComponent {
   }
 
   drop(event: CdkDragDrop<Task[]>){
-    if(event.previousContainer === event.container){
+    if(event.previousContainer === event.container){ // Same container
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
       event.item.data.status = event.container.element.nativeElement.id
-    } else {
-      event.currentIndex--
-      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex)
-      event.item.data.status = event.container.element.nativeElement.id
+    } else { // Different container
+      if(event.currentIndex > event.previousIndex)
+      {
+        transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex-1)
+        event.item.data.status = event.container.element.nativeElement.id
+      }
+      else
+      {
+        transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex)
+        event.item.data.status = event.container.element.nativeElement.id
+      }
     }
     console.log(`currentIndex: ${event.currentIndex}`)
     console.log(this.Tasks)
