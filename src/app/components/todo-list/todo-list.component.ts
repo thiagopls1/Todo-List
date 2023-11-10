@@ -10,7 +10,7 @@ import {
 import { Task } from 'src/app/interfaces/task';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { Tasks } from 'src/app/mocks/mock-tasks';
 import { TaskComponent } from '../task/task.component';
 
@@ -40,34 +40,32 @@ import { TaskComponent } from '../task/task.component';
 
 // Page
 export class TodoListComponent {
-  
+
   Tasks: Task[] = Tasks;
 
   todo = this.Tasks.filter(t => t.status == "Todo");
   inprogress = this.Tasks.filter(t => t.status == "InProgress");
   done = this.Tasks.filter(t => t.status == "Done");
 
-  checkStatus(task: Task, status: string): boolean{
-      return (task.status == status);
+  checkStatus(task: Task, status: string): boolean {
+    return (task.status == status);
   }
-  
 
-  drop(event: CdkDragDrop<Task[]>){
-    if(event.previousContainer === event.container) { // Same container
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
-      event.item.data.status = event.container.element.nativeElement.id
-    } 
-    else { // Different container
-      if(event.currentIndex > event.previousIndex) {
-        transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex-1)
-        event.item.data.status = event.container.element.nativeElement.id
-      }
-      else {
-        transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex)
-        event.item.data.status = event.container.element.nativeElement.id
-      }
+
+  drop(event: CdkDragDrop<Task[]>) {
+    if (event.previousContainer === event.container) { // Same container
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      event.item.data.status = event.container.element.nativeElement.id;
+      return;
     }
-    console.log(`currentIndex: ${event.currentIndex}`)
-    console.log(this.Tasks)
+    
+    if (event.currentIndex > event.previousIndex) { 
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex - 1);
+      event.item.data.status = event.container.element.nativeElement.id;
+    }
+    else {
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+      event.item.data.status = event.container.element.nativeElement.id;
+    }
   }
 }
