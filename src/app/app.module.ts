@@ -13,7 +13,6 @@ import { DialogNewTaskComponent } from './components/dialogs/dialog-new-task/dia
 @NgModule({
   declarations: [
     AppComponent,
-    DialogNewTaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +21,8 @@ import { DialogNewTaskComponent } from './components/dialogs/dialog-new-task/dia
     HttpClientModule,
     TodoListComponent,
     ToolbarComponent,
-    TaskComponent
+    TaskComponent,
+    DialogNewTaskComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
