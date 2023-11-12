@@ -8,10 +8,12 @@ import { TaskComponent } from './components/task/task.component'
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { DialogNewTaskComponent } from './components/dialogs/dialog-new-task/dialog-new-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DialogNewTaskComponent,
   ],
   imports: [
     BrowserModule,
