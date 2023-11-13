@@ -4,7 +4,7 @@
     <p> {{ task.description }} </p>
   </div>
   <div class="button-container">
-    <button mat-mini-fab color="black">
+    <button (click)="openEditTaskDialog()" mat-mini-fab color="black">
       <mat-icon color="white">edit</mat-icon>
     </button>
     <button (click)="delete()" mat-mini-fab color="warn">

@@ -42,13 +42,9 @@ export class TodoListComponent {
   constructor(public dialog: MatDialog, private ref:ChangeDetectorRef) { }
   Tasks: Task[] = Tasks;
 
-  ngOnInit() {
-    this.ref.detectChanges();
-  }
+  ngOnInit() { this.ref.detectChanges(); }
 
-  checkStatus(task: Task, status: string): boolean {
-    return (task.status == status);
-  }
+  checkStatus(task: Task, status: string): boolean { return (task.status == status); }
 
   drop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) { // Same container
@@ -67,14 +63,13 @@ export class TodoListComponent {
     }
   }
 
-  openDialog(): void {
+  openNewTaskDialog(): void {
     const dialogRef = this.dialog.open(DialogNewTaskComponent,
       { data: { title: '', description: '', status: '' } })
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       this.Tasks.unshift(result);
-      console.log(Tasks);
     })
   }
 }
