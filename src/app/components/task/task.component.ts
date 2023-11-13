@@ -28,8 +28,9 @@ export class TaskComponent {
       { data: { title: this.task.title, description: this.task.description, status: this.task.status } })
 
     dialogRef.afterClosed().subscribe(result => {
+      const index = this.tasks.indexOf(this.task);
       console.log(result);
-      this.task = result;
+      this.tasks.splice(index, 1, result);
       console.log(this.tasks);
       this.tasksChange.emit(this.tasks);
     })
