@@ -1,4 +1,5 @@
 .form-field-container{
   display: flex;
   flex-direction: column;
+  min-width: 500px;
 }
