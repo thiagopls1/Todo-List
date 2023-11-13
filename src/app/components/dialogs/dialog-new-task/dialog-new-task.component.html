@@ -1,1 +1,15 @@
-<p>dialog-new-task works!</p>
+<h1 mat-dialog-title>New Task</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Task Title</mat-label>
+    <input matInput [(ngModel)]="data.title">
+
+    <mat-label>Task Description</mat-label>
+    <input matInput [(ngModel)]="data.title">
+
+    <mat-label>Task Status</mat-label>
+    <mat-select *ngFor="let status of statuses">
+      <mat-option [value]="status"> {{ status }} </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

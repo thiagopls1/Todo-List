@@ -1,9 +1,10 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { Task } from 'src/app/interfaces/task';
 
 @Component({
@@ -11,9 +12,15 @@ import { Task } from 'src/app/interfaces/task';
   templateUrl: './dialog-new-task.component.html',
   styleUrls: ['./dialog-new-task.component.css'],
   standalone: true,
-  imports: [MatDialogModule, MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule]
+  imports: [MatSelectModule, MatDialogModule, MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule]
 })
 export class DialogNewTaskComponent {
+  statuses: string[] = [
+    "ToDo",
+    "InProgress",
+    "Done"
+  ];
+  
   constructor(
     public dialogRef: MatDialogRef<DialogNewTaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Task,
