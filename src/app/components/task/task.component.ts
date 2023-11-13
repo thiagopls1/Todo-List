@@ -36,7 +36,8 @@ export class TaskComponent {
   }
 
   delete(){
-    const index = this.tasks.indexOf(this.task, 0);
+    const index = this.tasks.indexOf(this.task);
+    console.log(index);
     this.tasks.splice(index, 1);
     this.tasksChange.emit(this.tasks);
   }

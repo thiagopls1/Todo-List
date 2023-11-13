@@ -26,11 +26,6 @@ import { CommonModule, NgFor } from '@angular/common';
   ]
 })
 export class DialogEditTaskComponent {
-  statuses: string[] = [
-    "Todo",
-    "InProgress",
-    "Done"
-  ];
 
   constructor(
     public dialogRef: MatDialogRef<DialogEditTaskComponent>,
