@@ -29,16 +29,13 @@ export class TaskComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       const index = this.tasks.indexOf(this.task);
-      console.log(result);
       this.tasks.splice(index, 1, result);
-      console.log(this.tasks);
       this.tasksChange.emit(this.tasks);
     })
   }
 
   delete(){
     const index = this.tasks.indexOf(this.task);
-    console.log(index);
     this.tasks.splice(index, 1);
     this.tasksChange.emit(this.tasks);
   }
