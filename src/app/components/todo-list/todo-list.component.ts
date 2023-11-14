@@ -68,7 +68,7 @@ export class TodoListComponent {
       { data: { title: '', description: '', status: '' } })
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      if(!result) return;
       this.Tasks.unshift(result);
     })
   }
