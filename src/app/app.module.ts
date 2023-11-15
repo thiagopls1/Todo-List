@@ -20,15 +20,11 @@ import { MatInputModule } from '@angular/material/input';
     BrowserModule,
     DragDropModule,
     CommonModule,
-    NgFor,
-    NgIf,
     HttpClientModule,
     TodoListComponent,
     ToolbarComponent,
     TaskComponent,
-    DialogNewTaskComponent,
-    DialogEditTaskComponent,
-    MatInputModule
+    DialogNewTaskComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
