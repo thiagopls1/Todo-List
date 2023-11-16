@@ -19,7 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 export class TaskComponent {
   @Input() task!: Task;
 
-  @Input() tasks!: Task[] | Task[];
+  @Input() tasks!: Task[];
   @Output() tasksChange = new EventEmitter<Task[]>();
 
   constructor(public dialog: MatDialog) {}
