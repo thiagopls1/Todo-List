@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 import { Task } from 'src/app/interfaces/task';
@@ -38,7 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ]
 })
 
-export class TodoListComponent {
+export class TodoListComponent implements OnInit {
   constructor(public dialog: MatDialog, private ref:ChangeDetectorRef) { }
   Tasks: Task[] = Tasks;
 
